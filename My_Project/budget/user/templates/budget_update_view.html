@@ -1,0 +1,17 @@
+<!-- templates/budget_update.html -->
+
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Update Budget for {{ budget.category }}</h2>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Update Budget</button>
+  </form>
+
+  <br>
+  <a href="{% url 'budget_detail' pk=budget.pk %}">Back to Budget Details</a>
+{% endblock %}

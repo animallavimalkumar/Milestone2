@@ -1,0 +1,18 @@
+<!-- templates/category_delete.html -->
+
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Are you sure you want to delete the category "{{ category.name }}"?</h2>
+
+  <p><strong>Description:</strong> {{ category.description }}</p>
+
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes, delete this category</button>
+  </form>
+
+  <br>
+  <a href="{% url 'category_list' %}">Cancel, go back to category list</a> |
+  <a href="{% url 'category_detail' pk=category.pk %}">Cancel, go back to category details</a>
+{% endblock %}

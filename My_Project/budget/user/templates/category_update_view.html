@@ -1,0 +1,18 @@
+<!-- templates/category_list.html -->
+
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Category List</h2>
+  <ul>
+    {% for category in categories %}
+      <li>
+        {{ category.name }} - {{ category.description }}
+        <a href="{% url 'category_delete' pk=category.pk %}">Delete</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <br>
+  <a href="{% url 'category_add' %}">Add New Category</a>
+{% endblock %}

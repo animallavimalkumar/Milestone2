@@ -1,0 +1,15 @@
+<!-- templates/emi_delete.html -->
+
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Are you sure you want to delete the EMI for loan amount {{ emi.loan_amount }}?</h2>
+  
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes, Delete EMI</button>
+  </form>
+
+  <br>
+  <a href="{% url 'emi_list' %}">Cancel</a>
+{% endblock %}

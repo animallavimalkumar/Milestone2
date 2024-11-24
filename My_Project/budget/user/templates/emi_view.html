@@ -1,0 +1,17 @@
+<!-- templates/emi_view.html -->
+
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>EMI Details</h2>
+  <p><strong>Loan Amount:</strong> {{ emi.loan_amount }}</p>
+  <p><strong>Interest Rate:</strong> {{ emi.interest_rate }}%</p>
+  <p><strong>Tenure (Months):</strong> {{ emi.tenure_months }}</p>
+  <p><strong>Monthly Installment:</strong> {{ emi.monthly_installment }}</p>
+  <p><strong>Due Date:</strong> {{ emi.due_date }}</p>
+
+  <br>
+  <a href="{% url 'emi_update' pk=emi.pk %}">Edit EMI</a> |
+  <a href="{% url 'emi_delete' pk=emi.pk %}">Delete EMI</a> |
+  <a href="{% url 'emi_list' %}">Back to EMI List</a>
+{% endblock %}

@@ -1,0 +1,25 @@
+<!-- templates/category_view.html -->
+
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Category: "{{ category.name }}"</h2>
+
+  <p><strong>Description:</strong> {{ category.description }}</p>
+
+  <!-- Optionally, you could display related items or other relevant info -->
+  <!-- Example: List of related expenses or items -->
+  <h3>Related Items (if applicable)</h3>
+  <ul>
+    {% for item in category.item_set.all %}
+      <li>{{ item.name }} - {{ item.amount }}</li>
+    {% empty %}
+      <li>No related items.</li>
+    {% endfor %}
+  </ul>
+
+  <br>
+  <a href="{% url 'category_list' %}">Back to Category List</a> |
+  <a href="{% url 'category_update' pk=category.pk %}">Edit Category</a> |
+  <a href="{% url 'category_delete' pk=category.pk %}">Delete Category</a>
+{% endblock %}
